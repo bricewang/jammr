@@ -19,6 +19,10 @@ const updateTitle = ({request: {listId, title}, sendStatus, socket}) => {
     });
 };
 
+const playSound = ({request: {listId, soundId}, sendStatus, socket}) => {
+  socket.to(list.id).emit('sound:play', soundId);;;;;;;
+}
+
 // Creates a new ListItem and notifies
 // all subscribed users of the change.
 const addItem = ({
@@ -38,7 +42,6 @@ const addItem = ({
 const updateItem = ({request, sendStatus, allInRoom}) => {
   const {listId, id, name, completerFbId} = request;
   console.log('request', {listId, id, name, completerFbId});
-
   ListsItems.update({id, name, completerFbId})
     .then(({id, name, completerFbId}) => {
       allInRoom(listId)
