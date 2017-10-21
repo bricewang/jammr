@@ -21,6 +21,7 @@ const updateTitle = ({request: {listId, title}, sendStatus, socket}) => {
 
 const playSound = ({request: {listId, soundId}, sendStatus, socket}) => {
   socket.to(list.id).emit('sound:play', soundId);;;;;;;
+  sendStatus('ok')
 }
 
 // Creates a new ListItem and notifies

@@ -205,6 +205,10 @@ export default class App extends React.Component {
     }, 600);
   }
 
+  playSound(soundId) {
+
+  }
+
   /* =============================================
      =              React Lifecycle              =
      ============================================= */
@@ -227,6 +231,7 @@ export default class App extends React.Component {
     socket.on('title:update', this.setDocumentTitle);
     socket.on('user:join', this.userJoin);
     socket.on('users:setOnline', this.setOnlineUsers);
+    socket.on('sound:play', this.playSound)
 
     var self = this;
     // Check for permission, ask if there is none
